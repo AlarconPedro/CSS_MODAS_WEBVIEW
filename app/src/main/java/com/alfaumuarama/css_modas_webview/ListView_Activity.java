@@ -16,11 +16,14 @@ import android.widget.ProgressBar;
 public class ListView_Activity extends AppCompatActivity {
 
     WebView webView;
+    public int opcao;
+    public String url;
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if ((keyCode == KeyEvent.KEYCODE_BACK) && webView.canGoBack()) {
             webView.goBack();
+        webView.loadUrl("");
             return true;
         }
         return super.onKeyDown(keyCode, event);
@@ -31,22 +34,8 @@ public class ListView_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_view);
 
-//        Intent tela = getIntent();
-
-/*      if( tela != null ) {
-            Bundle params = tela.getExtras();
-
-            if ( params != null ) {
-                String link = params.getString("link");
-
-                webView.loadUrl(link);
-            }
-        }
-
-*/
-
         webView = findViewById(R.id.webView);
-        webView.loadUrl("https://trello.com/b/MJOWiJvJ/hackaton");
+        webView.loadUrl(link());
 
         webView.getSettings().setJavaScriptEnabled(true);
         webView.setWebViewClient(new WebViewClient());
@@ -73,6 +62,42 @@ public class ListView_Activity extends AppCompatActivity {
                 super.onReceivedSslError(view, handler, error);
             }
         });
+    }
+
+    public String link () {
+
+        MainActivity main = new MainActivity();
+        this.opcao = main.opcao;
+
+
+        if (this.opcao == main.opcao) {
+
+            switch (opcao) {
+                case 0:
+                    url = "http://cssmodas.herokuapp.com";
+                    break;
+                case 1:
+                    url = "https://trello.com/b/MJOWiJvJ/hackaton";
+                    break;
+                case 2:
+                    url = "https://www.google.com.br";
+                    break;
+                case 3:
+                    url = "https://stackoverflow.com/questions/4227539/android-how-to-create-switch-case-from-this/4227815";
+                    break;
+                case 4:
+                    url = "http://cssmodas.herokuapp.com";
+                    break;
+
+                default:
+                    url = "https://www.google.com.br";
+                    break;
+            }
+        } else {
+            url = " ";
+        }
+
+        return url;
     }
 
 }
