@@ -10,85 +10,39 @@ import android.widget.ImageButton;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnMasculino, btnFeminino, btnPraia, btnInverno, btnAdulto;
+    Button btnCategorias, btnVitrine;
     ImageButton btnWpp;
-    public int opcao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ListView_Activity list = new ListView_Activity();
-
-        btnMasculino  = findViewById(R.id.btnMasculino);
-        btnFeminino   = findViewById(R.id.btnFeminina);
-        btnAdulto     = findViewById(R.id.btnAdulto);
-        btnInverno    = findViewById(R.id.btnInverno);
-        btnPraia      = findViewById(R.id.btnPraia);
+        btnCategorias = findViewById(R.id.btnCategorias);
+        btnVitrine    = findViewById(R.id.btnVitrine);
         btnWpp        = findViewById(R.id.btnWpp);
 
-        btnMasculino.setOnClickListener(new View.OnClickListener() {
+        btnCategorias.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               mudaTela();
-               startActivity(mudaTela());
+                Intent categorias = new Intent(MainActivity.this, ListView_Activity.class);
+                startActivity(categorias);
             }
         });
 
-        btnFeminino.setOnClickListener(new View.OnClickListener() {
+        btnVitrine.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mudaTela();
-                startActivity(mudaTela());
-                opcao = 1;
-                list.url += "/images/poloBranca.png";
-            }
-        });
-
-        btnAdulto.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mudaTela();
-                startActivity(mudaTela());
-                opcao = 2;
-                list.url += "/produtos";
-            }
-        });
-
-        btnInverno.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mudaTela();
-                startActivity(mudaTela());
-                opcao = 3;
-                list.url += "/api/produtos";
-            }
-        });
-
-        btnPraia.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mudaTela();
-                startActivity(mudaTela());
-                opcao = 4;
-                list.url += "/images";
+                Intent vitrine = new Intent(MainActivity.this, VitrineActivity.class);
+                startActivity(vitrine);
             }
         });
 
         btnWpp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent wpp = new Intent(MainActivity.this, ListView_Activity.class);
             }
         });
-
     }
-
-    public Intent mudaTela () {
-        Intent detalhes = new Intent(MainActivity.this, ListView_Activity.class);
-
-        return detalhes;
-    }
-
 }
