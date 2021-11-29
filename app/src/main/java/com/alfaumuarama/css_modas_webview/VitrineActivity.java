@@ -42,23 +42,23 @@ public class VitrineActivity extends AppCompatActivity {
 
         switch (list.opcao) {
             case 0:
-                url = "http://187.87.223.235/produtos";
+                url = "http://187.87.223.235:81/";
                 break;
             case 1:
-                url = "http://187.87.223.235/images/camisetaPreta.png";
+                url = "http://187.87.223.235:81/";
                 break;
             case 2:
-                url = "http://187.87.223.235/images/camisetaPreta.png";
+                url = "http://187.87.223.235:81/";
                 break;
             case 3:
-                url = "http://187.87.223.235/images/camisetaPreta.png";
+                url = "http://187.87.223.235:81/";
                 break;
             case 4:
-                url = "http://187.87.223.235/images/camisetaPreta.png";
+                url = "http://187.87.223.235:81/";
                 break;
 
             default:
-                url = "http://187.87.223.235/images/camisetaPreta.png";
+                url = "http://187.87.223.235:81/";
                 break;
         }
 

@@ -13,6 +13,9 @@
         android:theme="@style/Theme.CSS_MODAS_WEBVIEW"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".WppActivity"
+            android:exported="false" />
+        <activity
             android:name=".VitrineActivity"
             android:exported="false" />
 

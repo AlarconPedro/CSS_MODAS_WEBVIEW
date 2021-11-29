@@ -41,7 +41,8 @@ public class MainActivity extends AppCompatActivity {
         btnWpp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent wpp = new Intent(MainActivity.this, ListView_Activity.class);
+                Intent wpp = new Intent(MainActivity.this, WppActivity.class);
+                startActivity(wpp);
             }
         });
     }

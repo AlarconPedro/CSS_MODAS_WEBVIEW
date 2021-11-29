@@ -70,13 +70,6 @@ public class ListView_Activity extends AppCompatActivity {
             }
         });
 
-        /*tnVoltar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent voltar = new Intent(ListView_Activity.this, MainActivity.class);
-                startActivity(voltar);
-            }
-        });*/
     }
 
     public Intent mudaTela () {
