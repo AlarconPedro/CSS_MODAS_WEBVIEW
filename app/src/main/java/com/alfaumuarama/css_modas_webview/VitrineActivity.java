@@ -2,6 +2,7 @@ package com.alfaumuarama.css_modas_webview;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.http.SslError;
 import android.os.Bundle;
@@ -16,6 +17,7 @@ public class VitrineActivity extends AppCompatActivity {
 
     WebView webView;
     public String url;
+    public int opcao;
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -32,42 +34,43 @@ public class VitrineActivity extends AppCompatActivity {
         setContentView(R.layout.activity_vitrine);
 
         webView = findViewById(R.id.webView);
-        Vitrine();
-
+        link();
     }
 
     public String link () {
 
         ListView_Activity list = new ListView_Activity();
+        Intent codigo = getIntent();
+        opcao = codigo.getIntExtra("codigo", 5);
 
-        switch (list.opcao) {
+        switch (opcao) {
             case 0:
-                url = "http://187.87.223.235:81/";
+                url = "http://187.87.223.235:81/api/produtosCategoria/4";
                 break;
             case 1:
-                url = "http://187.87.223.235:81/";
+                url = "http://187.87.223.235:81/api/produtosCategoria/3";
                 break;
             case 2:
-                url = "http://187.87.223.235:81/";
+                url = "http://187.87.223.235:81/api/produtosCategoria/2";
                 break;
             case 3:
-                url = "http://187.87.223.235:81/";
+                url = "http://187.87.223.235:81/api/produtosCategoria/5";
                 break;
             case 4:
-                url = "http://187.87.223.235:81/";
+                url = "http://187.87.223.235:81/api/produtosCategoria/6";
                 break;
 
             default:
                 url = "http://187.87.223.235:81/";
                 break;
         }
+        webView.loadUrl(url);
+        Vitrine();
 
-        return url;
+        return url.toString();
     }
 
     public void Vitrine() {
-
-        webView.loadUrl(link());
 
         webView.getSettings().setJavaScriptEnabled(true);
         webView.setWebViewClient(new WebViewClient());

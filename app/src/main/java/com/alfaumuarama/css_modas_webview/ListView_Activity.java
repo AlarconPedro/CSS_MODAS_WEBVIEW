@@ -6,12 +6,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 
 public class ListView_Activity extends AppCompatActivity {
 
     Button btnMasculino, btnFeminino, btnPraia, btnInverno, btnAdulto;
-    ImageButton btnVoltar;
     public int opcao;
 
     @Override
@@ -25,48 +23,50 @@ public class ListView_Activity extends AppCompatActivity {
         btnInverno    = findViewById(R.id.btnInverno);
         btnPraia      = findViewById(R.id.btnPraia);
 
+        VitrineActivity vitrine = new VitrineActivity();
+
         btnMasculino.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                opcao = 0;
                 mudaTela();
                 startActivity(mudaTela());
-                opcao = 0;
             }
         });
 
         btnFeminino.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                opcao = 1;
                 mudaTela();
                 startActivity(mudaTela());
-                opcao = 1;
             }
         });
 
         btnAdulto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                opcao = 2;
                 mudaTela();
                 startActivity(mudaTela());
-                opcao = 2;
             }
         });
 
         btnInverno.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                opcao = 3;
                 mudaTela();
                 startActivity(mudaTela());
-                opcao = 3;
             }
         });
 
         btnPraia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                opcao = 4;
                 mudaTela();
                 startActivity(mudaTela());
-                opcao = 4;
             }
         });
 
@@ -75,6 +75,7 @@ public class ListView_Activity extends AppCompatActivity {
     public Intent mudaTela () {
 
         Intent detalhes = new Intent(ListView_Activity.this, VitrineActivity.class);
+        detalhes.putExtra("codigo", opcao);
 
         return detalhes;
     }

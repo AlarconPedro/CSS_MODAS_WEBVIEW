@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent vitrine = new Intent(MainActivity.this, VitrineActivity.class);
+                vitrine.putExtra("codigo", 5);
                 startActivity(vitrine);
             }
         });
